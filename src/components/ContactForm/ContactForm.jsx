@@ -8,6 +8,7 @@ export class ContactForm extends Component {
                 <div className={styles.inputWrapper}>
                     <input
                         className={styles.input}
+                        name='firstName'
                         type='text'
                         placeholder='First name'
                     />
@@ -18,6 +19,7 @@ export class ContactForm extends Component {
                 <div className={styles.inputWrapper}>
                     <input
                         className={styles.input}
+                        name='lastName'
                         type='text'
                         placeholder='Last name'
                     />
@@ -28,6 +30,7 @@ export class ContactForm extends Component {
                 <div className={styles.inputWrapper}>
                     <input
                         className={styles.input}
+                        name='email'
                         type='email'
                         placeholder='Email'
                     />
@@ -38,6 +41,7 @@ export class ContactForm extends Component {
                 <div className={styles.inputWrapper}>
                     <input
                         className={styles.input}
+                        name='phone'
                         type='tel'
                         placeholder='Phone'
                     />
