@@ -10,7 +10,11 @@ export class ContactList extends Component {
             <div className={styles.contactListWrapper}>
                 <ul className={styles.contactList}>
                     {contacts.map((contact) => (
-                        <ContactItem key={contact.id} contact={contact} />
+                        <ContactItem
+                            key={contact.id}
+                            contact={contact}
+                            onDeleteContact={this.props.onDeleteContact}
+                        />
                     ))}
                 </ul>
                 <button className={styles.addButton} type='button'>
