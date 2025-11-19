@@ -14,7 +14,7 @@ export class ContactList extends Component {
                     ))}
                 </ul>
                 <button className={styles.addButton} type='button'>
-                    Add contact
+                    New
                 </button>
             </div>
         );

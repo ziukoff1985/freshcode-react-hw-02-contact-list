@@ -4,6 +4,29 @@
     gap: 10px;
     width: 45%;
     min-height: 70vh;
+    padding: 20px;
+    border: 1px solid #505050;
+    border-radius: 5px;
+}
+
+.inputWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid #505050;
+}
+
+.input {
+    display: flex;
+    /* flex-grow: 1; */
+    width: 90%;
+    padding: 10px;
+    border: none;
+}
+
+.input:focus,
+.input:active {
+    outline: none;
 }
 
 .buttonWrapper {
@@ -13,7 +36,15 @@
     gap: 10px;
 }
 
-.buttonWrapper button {
+.deleteButton {
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.formButton {
     padding: 10px 20px;
     border: 1px solid #505050;
     border-radius: 5px;

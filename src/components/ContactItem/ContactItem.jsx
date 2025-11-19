@@ -6,7 +6,7 @@ export class ContactItem extends Component {
         const { contact } = this.props;
         return (
             <li className={styles.contactItem}>
-                <div>
+                <div className={styles.contactName}>
                     {contact.firstName} {contact.lastName}
                 </div>
                 <button className={styles.deleteButton} type='button'>

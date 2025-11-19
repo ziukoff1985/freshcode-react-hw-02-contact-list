@@ -5,13 +5,53 @@ export class ContactForm extends Component {
     render() {
         return (
             <form className={styles.contactForm}>
-                <input type='text' placeholder='First name' />
-                <input type='text' placeholder='Last name' />
-                <input type='email' placeholder='Email' />
-                <input type='tel' placeholder='Phone' />
+                <div className={styles.inputWrapper}>
+                    <input
+                        className={styles.input}
+                        type='text'
+                        placeholder='First name'
+                    />
+                    <button className={styles.deleteButton} type='button'>
+                        <span>❌</span>
+                    </button>
+                </div>
+                <div className={styles.inputWrapper}>
+                    <input
+                        className={styles.input}
+                        type='text'
+                        placeholder='Last name'
+                    />
+                    <button className={styles.deleteButton} type='button'>
+                        <span>❌</span>
+                    </button>
+                </div>
+                <div className={styles.inputWrapper}>
+                    <input
+                        className={styles.input}
+                        type='email'
+                        placeholder='Email'
+                    />
+                    <button className={styles.deleteButton} type='button'>
+                        <span>❌</span>
+                    </button>
+                </div>
+                <div className={styles.inputWrapper}>
+                    <input
+                        className={styles.input}
+                        type='tel'
+                        placeholder='Phone'
+                    />
+                    <button className={styles.deleteButton} type='button'>
+                        <span>❌</span>
+                    </button>
+                </div>
                 <div className={styles.buttonWrapper}>
-                    <button type='submit'>Save</button>
-                    <button type='button'>Delete</button>
+                    <button className={styles.formButton} type='submit'>
+                        Save
+                    </button>
+                    <button className={styles.formButton} type='button'>
+                        Delete
+                    </button>
                 </div>
             </form>
         );
