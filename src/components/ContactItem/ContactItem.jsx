@@ -1,11 +1,20 @@
-import { Component } from 'react'
+import { Component } from 'react';
+import styles from './ContactItem.module.css';
 
 export class ContactItem extends Component {
-  render() {
-    return (
-      <div>ContactItem</div>
-    )
-  }
+    render() {
+        const { contact } = this.props;
+        return (
+            <li className={styles.contactItem}>
+                <div>
+                    {contact.firstName} {contact.lastName}
+                </div>
+                <button className={styles.deleteButton} type='button'>
+                    <span>❌</span>
+                </button>
+            </li>
+        );
+    }
 }
 
-export default ContactItem
+export default ContactItem;

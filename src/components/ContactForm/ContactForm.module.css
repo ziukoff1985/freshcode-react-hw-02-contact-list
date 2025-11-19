@@ -1,0 +1,21 @@
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 45%;
+    min-height: 70vh;
+}
+
+.buttonWrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.buttonWrapper button {
+    padding: 10px 20px;
+    border: 1px solid #505050;
+    border-radius: 5px;
+    cursor: pointer;
+}

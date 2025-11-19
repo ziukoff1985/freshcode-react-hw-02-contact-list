@@ -1,9 +1,23 @@
 import { Component } from 'react';
 import ContactItem from '../ContactItem/ContactItem';
 
+import styles from './ContactList.module.css';
+
 export class ContactList extends Component {
     render() {
-        return <>ContactList</>;
+        const { contacts } = this.props;
+        return (
+            <div className={styles.contactListWrapper}>
+                <ul className={styles.contactList}>
+                    {contacts.map((contact) => (
+                        <ContactItem key={contact.id} contact={contact} />
+                    ))}
+                </ul>
+                <button className={styles.addButton} type='button'>
+                    Add contact
+                </button>
+            </div>
+        );
     }
 }
 

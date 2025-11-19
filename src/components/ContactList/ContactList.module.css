@@ -1,0 +1,21 @@
+.contactListWrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 70vh;
+    width: 45%;
+}
+
+.contactList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addButton {
+    margin-top: auto;
+    align-self: center;
+    padding: 10px 20px;
+    border: 1px solid #505050;
+    border-radius: 5px;
+    cursor: pointer;
+}
