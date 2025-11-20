@@ -85,6 +85,7 @@ export class ContactForm extends Component {
                         name='email'
                         type='email'
                         placeholder='Email'
+                        autoComplete='on'
                         onChange={this.onInputChange}
                     />
                     <button
@@ -103,6 +104,7 @@ export class ContactForm extends Component {
                         name='phone'
                         type='tel'
                         placeholder='Phone'
+                        autoComplete='on'
                         onChange={this.onInputChange}
                     />
                     <button

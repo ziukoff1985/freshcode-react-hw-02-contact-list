@@ -6,16 +6,18 @@ export class ContactItem extends Component {
         this.props.onDeleteContact(this.props.contact.id);
     };
 
-    onContactEdit = (event) => {
+    onContactEdit = () => {
         this.props.onEditContact(this.props.contact);
-        event.target.blur();
+        this.isUpdating = true;
     };
 
     render() {
-        const { contact } = this.props;
+        const { contact, contactForEdit } = this.props;
         return (
             <li
-                className={styles.contactItem}
+                className={`${styles.contactItem} ${
+                    contactForEdit.id === contact.id && styles.updating
+                }`}
                 onDoubleClick={this.onContactEdit}
             >
                 <div className={styles.contactName}>

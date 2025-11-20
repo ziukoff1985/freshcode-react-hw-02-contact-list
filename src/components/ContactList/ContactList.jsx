@@ -16,6 +16,7 @@ export class ContactList extends Component {
                             contact={contact}
                             onDeleteContact={this.props.onDeleteContact}
                             onEditContact={this.props.onEditContact}
+                            contactForEdit={this.props.contactForEdit}
                         />
                     ))}
                 </ul>

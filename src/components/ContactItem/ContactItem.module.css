@@ -1,9 +1,10 @@
 .contactItem {
     display: flex;
     justify-content: space-between;
-    /* padding: 10px; */
-    border: 1px solid #505050;
+    cursor: pointer;
+    border: 2px solid #505050;
     padding-left: 10px;
+    background-color: #e1e1e1;
 }
 
 .contactName {
@@ -16,4 +17,9 @@
     border: none;
     cursor: pointer;
     padding: 10px;
+}
+
+.updating {
+    outline: 4px solid #ef6464;
+    outline-offset: 2px;
 }

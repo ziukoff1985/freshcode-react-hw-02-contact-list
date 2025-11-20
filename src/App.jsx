@@ -34,13 +34,12 @@ export class App extends Component {
             const contacts = prevState.contacts.filter(
                 (contact) => contact.id !== contactId
             );
-
-            const wasEditing = prevState.contactForEdit.id === contactId;
+            const isContactUpdating = prevState.contactForEdit.id === contactId;
 
             this.saveContactsToLocalStorage(contacts);
             return {
                 contacts: contacts,
-                contactForEdit: wasEditing
+                contactForEdit: isContactUpdating
                     ? this.createEmptyContact()
                     : prevState.contactForEdit,
             };
@@ -62,9 +61,15 @@ export class App extends Component {
     };
 
     editContact = (contact) => {
-        this.setState({
-            contactForEdit: { ...contact },
-        });
+        this.setState(
+            {
+                contactForEdit: { ...contact },
+            },
+            () => {
+                console.log(this.state.contactForEdit);
+            }
+        );
+        console.log(this.state.contactForEdit);
     };
 
     createContact = (contact) => {
@@ -104,6 +109,7 @@ export class App extends Component {
                     onDeleteContact={this.deleteContact}
                     onAddNewContact={this.addNewContact}
                     onEditContact={this.editContact}
+                    contactForEdit={this.state.contactForEdit}
                 />
                 <ContactForm
                     key={this.state.contactForEdit.id}
