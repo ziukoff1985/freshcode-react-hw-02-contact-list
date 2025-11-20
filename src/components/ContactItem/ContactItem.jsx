@@ -6,10 +6,18 @@ export class ContactItem extends Component {
         this.props.onDeleteContact(this.props.contact.id);
     };
 
+    onContactEdit = (event) => {
+        this.props.onEditContact(this.props.contact);
+        event.target.blur();
+    };
+
     render() {
         const { contact } = this.props;
         return (
-            <li className={styles.contactItem}>
+            <li
+                className={styles.contactItem}
+                onDoubleClick={this.onContactEdit}
+            >
                 <div className={styles.contactName}>
                     {contact.firstName} {contact.lastName}
                 </div>
@@ -18,7 +26,7 @@ export class ContactItem extends Component {
                     type='button'
                     onClick={this.onContactDelete}
                 >
-                    <span>❌</span>
+                    ❌
                 </button>
             </li>
         );

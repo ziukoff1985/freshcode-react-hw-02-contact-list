@@ -8,7 +8,17 @@ import ContactForm from './components/ContactForm/ContactForm';
 export class App extends Component {
     state = {
         contacts: [],
+        contactForEdit: this.createEmptyContact(),
     };
+
+    createEmptyContact() {
+        return {
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+        };
+    }
 
     componentDidMount() {
         const contacts = JSON.parse(localStorage.getItem('contacts'));
@@ -19,15 +29,6 @@ export class App extends Component {
         }
     }
 
-    addNewContact = (newContact) => {
-        newContact.id = nanoid();
-        this.setState((prevState) => {
-            const contacts = [...prevState.contacts, newContact];
-            this.saveContactsToLocalStorage(contacts);
-            return { contacts: contacts };
-        });
-    };
-
     deleteContact = (contactId) => {
         this.setState((prevState) => {
             const contacts = prevState.contacts.filter(
@@ -35,6 +36,51 @@ export class App extends Component {
             );
             this.saveContactsToLocalStorage(contacts);
             return { contacts: contacts };
+        });
+    };
+
+    saveContact = (contact) => {
+        if (!contact.id) {
+            this.createContact(contact);
+        } else {
+            this.updateContact(contact);
+        }
+    };
+
+    addNewContact = () => {
+        this.setState({
+            contactForEdit: this.createEmptyContact(),
+        });
+    };
+
+    editContact = (contact) => {
+        this.setState({
+            contactForEdit: { ...contact },
+        });
+    };
+
+    createContact = (contact) => {
+        contact.id = nanoid();
+        this.setState((prevState) => {
+            const contacts = [...prevState.contacts, contact];
+            this.saveContactsToLocalStorage(contacts);
+            return {
+                contacts: contacts,
+                contactForEdit: this.createEmptyContact(),
+            };
+        });
+    };
+
+    updateContact = (contact) => {
+        this.setState((prevState) => {
+            const contacts = prevState.contacts.map((item) =>
+                item.id === contact.id ? contact : item
+            );
+            this.saveContactsToLocalStorage(contacts);
+            return {
+                contacts: contacts,
+                contactForEdit: contact,
+            };
         });
     };
 
@@ -48,8 +94,15 @@ export class App extends Component {
                 <ContactList
                     contacts={this.state.contacts}
                     onDeleteContact={this.deleteContact}
+                    onAddNewContact={this.addNewContact}
+                    onEditContact={this.editContact}
                 />
-                <ContactForm onAddNewContact={this.addNewContact} />
+                <ContactForm
+                    key={this.state.contactForEdit.id}
+                    contactForEdit={this.state.contactForEdit}
+                    onSubmit={this.saveContact}
+                    onDeleteContact={this.deleteContact}
+                />
             </>
         );
     }

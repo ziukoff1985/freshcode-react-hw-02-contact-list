@@ -3,10 +3,16 @@ import styles from './ContactForm.module.css';
 
 export class ContactForm extends Component {
     state = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
+        ...this.props.contactForEdit,
+    };
+
+    createEmptyContact = () => {
+        return {
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+        };
     };
 
     onInputChange = (event) => {
@@ -17,14 +23,22 @@ export class ContactForm extends Component {
 
     onSubmitForm = (event) => {
         event.preventDefault();
-        this.props.onAddNewContact(this.state);
-        this.setState({
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-        });
+        this.props.onSubmit({ ...this.state });
+        if (!this.state.id) {
+            this.setState({ ...this.createEmptyContact() });
+        }
     };
+
+    onContactDelete = () => {
+        this.props.onDeleteContact(this.props.contactForEdit.id);
+        this.setState({ ...this.createEmptyContact() });
+    };
+
+    onClearField = (event) => {
+        const fieldName = event.target.dataset.field;
+        this.setState({ [fieldName]: '' });
+    };
+
     render() {
         return (
             <form onSubmit={this.onSubmitForm} className={styles.contactForm}>
@@ -37,8 +51,13 @@ export class ContactForm extends Component {
                         placeholder='First name'
                         onChange={this.onInputChange}
                     />
-                    <button className={styles.deleteButton} type='button'>
-                        <span>❌</span>
+                    <button
+                        className={styles.deleteButton}
+                        type='button'
+                        data-field='firstName'
+                        onClick={this.onClearField}
+                    >
+                        ❌
                     </button>
                 </div>
                 <div className={styles.inputWrapper}>
@@ -50,8 +69,13 @@ export class ContactForm extends Component {
                         placeholder='Last name'
                         onChange={this.onInputChange}
                     />
-                    <button className={styles.deleteButton} type='button'>
-                        <span>❌</span>
+                    <button
+                        className={styles.deleteButton}
+                        type='button'
+                        data-field='lastName'
+                        onClick={this.onClearField}
+                    >
+                        ❌
                     </button>
                 </div>
                 <div className={styles.inputWrapper}>
@@ -63,8 +87,13 @@ export class ContactForm extends Component {
                         placeholder='Email'
                         onChange={this.onInputChange}
                     />
-                    <button className={styles.deleteButton} type='button'>
-                        <span>❌</span>
+                    <button
+                        className={styles.deleteButton}
+                        type='button'
+                        data-field='email'
+                        onClick={this.onClearField}
+                    >
+                        ❌
                     </button>
                 </div>
                 <div className={styles.inputWrapper}>
@@ -76,17 +105,28 @@ export class ContactForm extends Component {
                         placeholder='Phone'
                         onChange={this.onInputChange}
                     />
-                    <button className={styles.deleteButton} type='button'>
-                        <span>❌</span>
+                    <button
+                        className={styles.deleteButton}
+                        type='button'
+                        data-field='phone'
+                        onClick={this.onClearField}
+                    >
+                        ❌
                     </button>
                 </div>
                 <div className={styles.buttonWrapper}>
                     <button className={styles.formButton} type='submit'>
                         Save
                     </button>
-                    <button className={styles.formButton} type='button'>
-                        Delete
-                    </button>
+                    {this.state.id && (
+                        <button
+                            className={styles.formButton}
+                            type='button'
+                            onClick={this.onContactDelete}
+                        >
+                            Delete
+                        </button>
+                    )}
                 </div>
             </form>
         );

@@ -5,7 +5,8 @@ import styles from './ContactList.module.css';
 
 export class ContactList extends Component {
     render() {
-        const { contacts } = this.props;
+        const { contacts, onAddNewContact } = this.props;
+
         return (
             <div className={styles.contactListWrapper}>
                 <ul className={styles.contactList}>
@@ -14,10 +15,15 @@ export class ContactList extends Component {
                             key={contact.id}
                             contact={contact}
                             onDeleteContact={this.props.onDeleteContact}
+                            onEditContact={this.props.onEditContact}
                         />
                     ))}
                 </ul>
-                <button className={styles.addButton} type='button'>
+                <button
+                    className={styles.addButton}
+                    type='button'
+                    onClick={onAddNewContact}
+                >
                     New
                 </button>
             </div>
