@@ -34,8 +34,16 @@ export class App extends Component {
             const contacts = prevState.contacts.filter(
                 (contact) => contact.id !== contactId
             );
+
+            const wasEditing = prevState.contactForEdit.id === contactId;
+
             this.saveContactsToLocalStorage(contacts);
-            return { contacts: contacts };
+            return {
+                contacts: contacts,
+                contactForEdit: wasEditing
+                    ? this.createEmptyContact()
+                    : prevState.contactForEdit,
+            };
         });
     };
 
