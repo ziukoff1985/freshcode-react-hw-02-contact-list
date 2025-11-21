@@ -19,7 +19,6 @@
 
 .input {
     display: flex;
-    background-color: #e1e1e1;
     width: 90%;
     padding: 10px;
     border: none;
@@ -42,7 +41,6 @@
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: #e1e1e1;
 }
 
 .formButton {

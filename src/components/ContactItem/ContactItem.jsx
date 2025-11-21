@@ -16,7 +16,7 @@ export class ContactItem extends Component {
         return (
             <li
                 className={`${styles.contactItem} ${
-                    contactForEdit.id === contact.id && styles.updating
+                    contactForEdit?.id === contact.id && styles.updating
                 }`}
                 onDoubleClick={this.onContactEdit}
             >

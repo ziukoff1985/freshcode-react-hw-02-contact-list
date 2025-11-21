@@ -1,16 +1,21 @@
-#root {
+h1,
+.container {
+    background-color: #b8b8b8;
+    border: 3px solid #505050;
     max-width: 800px;
     margin: 0 auto;
+}
+
+h1 {
     text-align: center;
+    padding: 20px;
+    border-bottom: none;
+    font-size: 32px;
 }
 
 .container {
     display: flex;
     justify-content: space-between;
-    background-color: #b8b8b8;
-    border: 3px solid #505050;
     border-top: none;
-    padding: 0 2rem 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+    padding: 0 20px 20px;
 }

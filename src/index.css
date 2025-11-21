@@ -132,13 +132,3 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-h1 {
-    text-align: center;
-    padding: 20px;
-    background-color: #b8b8b8;
-    border: 3px solid #505050;
-    border-bottom: none;
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 32px;
-}

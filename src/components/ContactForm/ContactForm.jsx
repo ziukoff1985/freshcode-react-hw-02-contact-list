@@ -35,8 +35,9 @@ export class ContactForm extends Component {
     };
 
     onClearField = (event) => {
-        const fieldName = event.target.dataset.field;
-        this.setState({ [fieldName]: '' });
+        const input = event.target.parentNode.firstChild;
+        console.log(input);
+        this.setState({ [input.name]: '' });
     };
 
     render() {
@@ -54,7 +55,6 @@ export class ContactForm extends Component {
                     <button
                         className={styles.deleteButton}
                         type='button'
-                        data-field='firstName'
                         onClick={this.onClearField}
                     >
                         ❌
@@ -72,7 +72,6 @@ export class ContactForm extends Component {
                     <button
                         className={styles.deleteButton}
                         type='button'
-                        data-field='lastName'
                         onClick={this.onClearField}
                     >
                         ❌
@@ -91,7 +90,6 @@ export class ContactForm extends Component {
                     <button
                         className={styles.deleteButton}
                         type='button'
-                        data-field='email'
                         onClick={this.onClearField}
                     >
                         ❌
@@ -110,7 +108,6 @@ export class ContactForm extends Component {
                     <button
                         className={styles.deleteButton}
                         type='button'
-                        data-field='phone'
                         onClick={this.onClearField}
                     >
                         ❌
