@@ -27,7 +27,8 @@
 
 .input:focus,
 .input:active {
-    outline: 2px solid #1a94e0;
+    background-color: #e3e3e3;
+    outline: none;
 }
 
 .buttonWrapper {

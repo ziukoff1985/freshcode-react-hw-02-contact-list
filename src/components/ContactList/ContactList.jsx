@@ -10,15 +10,17 @@ export class ContactList extends Component {
         return (
             <div className={styles.contactListWrapper}>
                 <ul className={styles.contactList}>
-                    {contacts.map((contact) => (
-                        <ContactItem
-                            key={contact.id}
-                            contact={contact}
-                            onDeleteContact={this.props.onDeleteContact}
-                            onEditContact={this.props.onEditContact}
-                            contactForEdit={this.props.contactForEdit}
-                        />
-                    ))}
+                    {contacts.length === 0
+                        ? 'No contacts yet'
+                        : contacts.map((contact) => (
+                              <ContactItem
+                                  key={contact.id}
+                                  contact={contact}
+                                  onDeleteContact={this.props.onDeleteContact}
+                                  onEditContact={this.props.onEditContact}
+                                  contactForEdit={this.props.contactForEdit}
+                              />
+                          ))}
                 </ul>
                 <button
                     className={styles.addButton}
