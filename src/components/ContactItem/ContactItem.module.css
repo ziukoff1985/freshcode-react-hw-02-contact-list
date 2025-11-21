@@ -17,6 +17,11 @@
     border: none;
     cursor: pointer;
     padding: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.deleteButton:hover {
+    transform: scale(1.2);
 }
 
 .updating {
