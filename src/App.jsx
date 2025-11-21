@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 
-import './App.css';
+import styles from './App.module.css';
 import ContactList from './components/ContactList/ContactList';
 import ContactForm from './components/ContactForm/ContactForm';
 
@@ -61,15 +61,9 @@ export class App extends Component {
     };
 
     editContact = (contact) => {
-        this.setState(
-            {
-                contactForEdit: { ...contact },
-            },
-            () => {
-                console.log(this.state.contactForEdit);
-            }
-        );
-        console.log(this.state.contactForEdit);
+        this.setState({
+            contactForEdit: { ...contact },
+        });
     };
 
     createContact = (contact) => {
@@ -104,19 +98,22 @@ export class App extends Component {
     render() {
         return (
             <>
-                <ContactList
-                    contacts={this.state.contacts}
-                    onDeleteContact={this.deleteContact}
-                    onAddNewContact={this.addNewContact}
-                    onEditContact={this.editContact}
-                    contactForEdit={this.state.contactForEdit}
-                />
-                <ContactForm
-                    key={this.state.contactForEdit.id}
-                    contactForEdit={this.state.contactForEdit}
-                    onSubmit={this.saveContact}
-                    onDeleteContact={this.deleteContact}
-                />
+                <h1>Contact List</h1>
+                <div className={styles.container}>
+                    <ContactList
+                        contacts={this.state.contacts}
+                        onDeleteContact={this.deleteContact}
+                        onAddNewContact={this.addNewContact}
+                        onEditContact={this.editContact}
+                        contactForEdit={this.state.contactForEdit}
+                    />
+                    <ContactForm
+                        key={this.state.contactForEdit.id}
+                        contactForEdit={this.state.contactForEdit}
+                        onSubmit={this.saveContact}
+                        onDeleteContact={this.deleteContact}
+                    />
+                </div>
             </>
         );
     }

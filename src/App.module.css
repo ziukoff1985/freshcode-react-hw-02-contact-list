@@ -1,11 +1,16 @@
 #root {
     max-width: 800px;
     margin: 0 auto;
-    padding: 1rem 2rem 2rem;
     text-align: center;
+}
+
+.container {
     display: flex;
     justify-content: space-between;
     background-color: #b8b8b8;
     border: 3px solid #505050;
     border-top: none;
+    padding: 0 2rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
