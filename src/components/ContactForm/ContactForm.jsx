@@ -36,7 +36,6 @@ export class ContactForm extends Component {
 
     onClearField = (event) => {
         const input = event.target.parentNode.firstChild;
-        console.log(input);
         this.setState({ [input.name]: '' });
     };
 

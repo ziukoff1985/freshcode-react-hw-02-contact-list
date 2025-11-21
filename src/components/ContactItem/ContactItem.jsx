@@ -8,7 +8,6 @@ export class ContactItem extends Component {
 
     onContactEdit = () => {
         this.props.onEditContact(this.props.contact);
-        this.isUpdating = true;
     };
 
     render() {

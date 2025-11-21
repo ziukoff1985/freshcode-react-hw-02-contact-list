@@ -35,7 +35,6 @@ export class App extends Component {
                 (contact) => contact.id !== contactId
             );
             const isContactUpdating = prevState.contactForEdit.id === contactId;
-
             this.saveContactsToLocalStorage(contacts);
             return {
                 contacts: contacts,
