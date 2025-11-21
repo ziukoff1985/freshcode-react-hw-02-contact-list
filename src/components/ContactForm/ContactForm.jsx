@@ -6,8 +6,18 @@ export class ContactForm extends Component {
         ...this.props.contactForEdit,
     };
 
+    static getDerivedStateFromProps(props, state) {
+        if (props.contactForEdit.id !== state.id) {
+            return {
+                ...props.contactForEdit,
+            };
+        }
+        return null;
+    }
+
     createEmptyContact = () => {
         return {
+            id: null,
             firstName: '',
             lastName: '',
             email: '',

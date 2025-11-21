@@ -13,6 +13,7 @@ export class App extends Component {
 
     createEmptyContact() {
         return {
+            id: null,
             firstName: '',
             lastName: '',
             email: '',
@@ -107,7 +108,6 @@ export class App extends Component {
                         contactForEdit={this.state.contactForEdit}
                     />
                     <ContactForm
-                        key={this.state.contactForEdit.id}
                         contactForEdit={this.state.contactForEdit}
                         onSubmit={this.saveContact}
                         onDeleteContact={this.deleteContact}
