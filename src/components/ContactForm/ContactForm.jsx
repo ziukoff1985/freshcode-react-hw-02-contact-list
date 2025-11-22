@@ -17,7 +17,6 @@ export class ContactForm extends Component {
 
     createEmptyContact = () => {
         return {
-            id: null,
             firstName: '',
             lastName: '',
             email: '',
